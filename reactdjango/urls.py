@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 # from tasks.urls import
 
 urlpatterns = [
+    path('', include('pages.urls')),
+
     path('api/', include('tasks.urls')),
     path('api/auth/', include('accounts.urls')),
 
