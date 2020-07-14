@@ -43,9 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'knox',
     'rest_framework',
-
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,3 +131,8 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     # ]
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
