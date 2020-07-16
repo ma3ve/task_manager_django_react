@@ -34,6 +34,20 @@ def login_view(requests, *args, **kwargs):
 def get_user_view(requests, *args, **kwargs):
     # print(requests.user)
     # print("authenticated")
-    return Response({"username": requests.user.username, "email": requests.user.email})
+    # print(requests.META)
+    # import re
 
+    # regex_http_ = re.compile(r'^HTTP_.+$')
+    # regex_content_type = re.compile(r'^CONTENT_TYPE$')
+    # regex_content_length = re.compile(r'^CONTENT_LENGTH$')
+
+    # request_headers = {}
+    # for header in requests.META:
+    #     if regex_http_.match(header) or regex_content_type.match(header) or regex_content_length.match(header):
+    #         request_headers[header] = requests.META[header]
+    # print(request_headers)
+    if(requests.user):
+
+        return Response({"username": requests.user.username, "email": requests.user.email})
+    return Response({"detail": "Invalid token."}, status=401)
 # forget

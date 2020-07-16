@@ -18,9 +18,9 @@ def task_list_view(requests, *args, **kwargs):
     # user_qs =
     # if(requests.user):
     qs = Task.objects.filter(user=requests.user)
-    print(qs)
+    # print(qs)
     serializer = Task_serialzer(qs, many=True)
-    print(serializer.data)
+    # print(serializer.data)
     return Response(data=serializer.data, status=200)
 
 
@@ -85,7 +85,7 @@ def task_update_view(requests, *args, **kwargs):
     #       is datetime)
 
     if update_serializer.is_valid(raise_exception=True):
-        print("validated data =", update_serializer.validated_data["method"])
+        # print("validated data =", update_serializer.validated_data["method"])
         task = Task.objects.filter(
             id=update_serializer.validated_data["id"]).first()
 
@@ -100,7 +100,7 @@ def task_update_view(requests, *args, **kwargs):
             task.save()
 
         if update_serializer.validated_data["method"] == 'make_task_complete':
-            print(update_serializer.validated_data["completeby"])
+            # print(update_serializer.validated_data["completeby"])
 
             task.completed = True
             task.save()
