@@ -47,7 +47,8 @@ export class InputCard extends Component {
                     Authorization: `token ${this.props.token}`,
                 },
             });
-            console.log(res);
+            // console.log(res.data);
+            this.props.getnewtask(res.data);
         } catch (error) {
             if (error.response) {
                 console.log(error.response.data);

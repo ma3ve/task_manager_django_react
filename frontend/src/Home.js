@@ -59,7 +59,10 @@ export class Home extends Component {
                     {!this.state.token ? (
                         <Login />
                     ) : (
-                        <Cards token={this.state.token} />
+                        <Cards
+                            token={this.state.token}
+                            username={this.state.username}
+                        />
                     )}
                 </div>
             </div>

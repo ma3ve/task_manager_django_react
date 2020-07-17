@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { unmountComponentAtNode } from "react-dom";
 import InputCard from "./InputCard";
 import Card from "./Card";
 import axios from "axios";
@@ -9,6 +10,7 @@ export class Cards extends Component {
         console.log("componentdidmount");
         this.state = {
             token: this.props.token,
+            list: null,
         };
     }
     componentDidMount = async () => {
@@ -32,20 +34,50 @@ export class Cards extends Component {
         }
     };
 
+    handleDelete = (id) => {
+        document.getElementById(id).innerHTML = "";
+    };
+
+    getnewtask = (task) => {
+        // let addnew = this.state.list.shift(task);
+        // this.state.list.shift(task);
+        // const temp = this.state.list.slice();
+        // let newitems = temp.unshift(task);
+        // let temp = [task].concat(this.state.list);
+        // console.log(task);
+        let temp = [...this.state.list];
+        temp.unshift(temp);
+        this.setState({
+            list: temp,
+        });
+        // console.log(this.state.list);
+        // task = this.state.task
+        // [];
+    };
+
     render() {
-        const { list } = this.state;
+        // const { list } = this.state;
         return (
             <div>
-                <InputCard token={this.props.token} />
-                {list
-                    ? list.map((item) => {
+                <h1 className="center">{`hello ${this.props.username}`}</h1>
+                <InputCard
+                    token={this.props.token}
+                    getnewtask={this.getnewtask}
+                />
+
+                {this.state.list
+                    ? this.state.list.map((item, i) => {
+                          console.log("check");
                           return (
                               <Card
                                   task={item.task}
                                   completed={item.completed}
                                   completeby={item.completeby}
-                                  key={item.id}
+                                  key={i}
                                   timestamp={item.timestamp}
+                                  token={this.props.token}
+                                  id={item.id}
+                                  handleDelete={this.handleDelete}
                               />
                           );
                       })
