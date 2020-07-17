@@ -4,8 +4,15 @@ this projects is a taskmanger with user authentication(login,logout and register
 
 to run this projects cd into the directory
 
-```
-cd frontend && npm run build
-cd .. && python manage.py runserver
+create a build for react
 
+```
+cd frontend && npm install
+npm start build
+```
+install backend  requirements from requirements.txt file  and start django server
+
+```
+pip install -r requirements.txt
+python manage.py runserver
 ```
