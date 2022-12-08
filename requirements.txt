@@ -1,7 +1,7 @@
 asgiref==3.2.7
 astroid @ file:///tmp/build/80754af9/astroid_1592495912941/work
 autopep8 @ file:///tmp/build/80754af9/autopep8_1592412889138/work
-certifi==2020.6.20
+certifi==2022.12.7
 cffi==1.14.0
 chardet==3.0.4
 cryptography==3.2
